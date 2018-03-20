@@ -28,4 +28,16 @@ dependencies {
     implementation project(':openCVLibrary330')
     //    compile 'com.jjoe64:graphview:4.2.1'
     implementation files('libs/GraphView-4.2.1.jar')
+    implementation project(':min3drotation')
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '25.3.0'
+            }
+        }
+    }
 }
