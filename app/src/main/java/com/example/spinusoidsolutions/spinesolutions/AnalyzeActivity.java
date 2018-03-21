@@ -1,22 +1,29 @@
 package com.example.spinusoidsolutions.spinesolutions;
+//package com.javacreed.examples.gson.part2;
 
-import android.annotation.SuppressLint;
+        import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
+//import com.google.gson.Gson;
+//import com.google.gson.GsonBuilder;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.text.ParseException;
+        import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+        import java.lang.reflect.Type;
+        import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+        import java.util.List;
+
 
 
 //Following imports are necessary for JSON parsing
@@ -26,10 +33,49 @@ public class AnalyzeActivity extends AppCompatActivity {
 
 //    @SuppressLint("SimpleDateFormat")
     @Override
+
+
+
+
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+
+// try {
+//            new ReadJsonList().run();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        try{
+//            InputStream is = getAssets().open("SpinusoidData.json");
+//            int size = is.available();
+//            byte[] buffer = new byte[size];
+//            is.read();
+//            is.close();
+//
+//            String json = new String(buffer,"UTF-8");
+//
+//
+//            Moshi moshi = new Moshi.Builder().build();
+//
+//            Type spineDataType = Types.newParameterizedType(List.class, SpineData.class);
+//            JsonAdapter<List<SpineData>> jsonAdapter = moshi.adapter(spineDataType);
+//
+//            List<SpineData> dataArray = jsonAdapter.fromJson(json);
+//            System.out.println(dataArray);
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analyze);
-
+       
+        try {
+            run();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String [] stringDates = new String[5];
         stringDates[0] = "03/01/2018";
         stringDates[1] = "03/02/2018";
@@ -43,6 +89,7 @@ public class AnalyzeActivity extends AppCompatActivity {
         data[2] = 5;
         data[3] = 3;
         data[4] = 8;
+
         SimpleDateFormat dateFormatter=new SimpleDateFormat("MM/dd/yyyy");
         GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
@@ -77,6 +124,96 @@ public class AnalyzeActivity extends AppCompatActivity {
 // is not necessary
         graph.getGridLabelRenderer().setHumanRounding(true);
     }
+
+    public void run() throws Exception {
+        String json = "[\n" +
+                "  {\n" +
+                "\t\"date\": \"03/01/2018\", \n" +
+                "\t\"left shoulder\" : \"100\", \n" +
+                "\t\"right shoulder\" : \"105\", \n" +
+                "\t\"difference\" : \"5\" \n" +
+                "\t} ,\n" +
+                "    {\n" +
+                "\t\"date\": \"03/02/2018\", \n" +
+                "\t\"left shoulder\" : \"100\", \n" +
+                "\t\"right shoulder\" : \"106\", \n" +
+                "\t\"difference\" : \"6\" \n" +
+                "\t} ,\n" +
+                "    {\n" +
+                "\t\"date\": \"03/03/2018\", \n" +
+                "\t\"left shoulder\" : \"99\", \n" +
+                "\t\"right shoulder\" : \"107\", \n" +
+                "\t\"difference\" : \"8\" \n" +
+                "\t} ,\n" +
+                "    {\n" +
+                "\t\"date\": \"03/04/2018\", \n" +
+                "\t\"left shoulder\" : \"99\", \n" +
+                "\t\"right shoulder\" : \"107\", \n" +
+                "\t\"difference\" : \"8\" \n" +
+                "\t} ,\n" +
+                "    {\n" +
+                "\t\"date\": \"03/05/2018\", \n" +
+                "\t\"left shoulder\" : \"100, \n" +
+                "\t\"right shoulder\" : \"107, \n" +
+                "\t\"difference\" : \"7\" \n" +
+                "\t} ,\n" +
+                "    {\n" +
+                "\t\"date\": \"03/06/2018\", \n" +
+                "\t\"left shoulder\" : \"101, \n" +
+                "\t\"right shoulder\" : \"108, \n" +
+                "\t\"difference\" : \"7\" \n" +
+                "\t} ,\n" +
+                "\t {\n" +
+                "\t\"date\": \"03/07/2018\", \n" +
+                "\t\"left shoulder\" : \"100, \n" +
+                "\t\"right shoulder\" : \"109, \n" +
+                "\t\"difference\" : \"9\" \n" +
+                "\t} \n" +
+                "  \n" +
+                "  ]\n" +
+                " ";
+
+        Moshi moshi = new Moshi.Builder().build();
+
+        Type spineDataType = Types.newParameterizedType(List.class, SpineData.class);
+        JsonAdapter<List<SpineData>> jsonAdapter = moshi.adapter(spineDataType);
+
+        List<SpineData> dataArray = jsonAdapter.fromJson(json);
+        System.out.println(dataArray);
+    }
+
+}
+//    public static void main(String[] args) throws IOException {
+//        try(Reader reader = new InputStreamReader(JsonToJava.class.getResourceAsStream("/Server1.json"), "UTF-8")){
+//            Gson gson = new GsonBuilder().create();
+//            Person p = gson.fromJson(reader, Person.class);
+//            System.out.println(p);
+//        }
+//    }
+
+
+//    public final class ReadJsonList {
+//        public void run() throws Exception {
+////
+//            InputStream is = getAssets().open("SpinusoidData.json");
+//            int size = is.available();
+//            byte[] buffer = new byte[size];
+//            is.read();
+//            is.close();
+//
+//            String json = new String(buffer,"UTF-8");
+//
+//
+//            Moshi moshi = new Moshi.Builder().build();
+//
+//            Type spineDataType = Types.newParameterizedType(List.class, SpineData.class);
+//            JsonAdapter<List<SpineData>> jsonAdapter = moshi.adapter(spineDataType);
+//
+//            List<SpineData> dataArray = jsonAdapter.fromJson(json);
+//            System.out.println(dataArray);
+//            }
+//        }
+
 
 //    public void get_json()
 //    {
@@ -136,4 +273,4 @@ public class AnalyzeActivity extends AppCompatActivity {
 //    }
 //}
 
-}
+

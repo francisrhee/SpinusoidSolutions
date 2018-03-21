@@ -29,6 +29,8 @@ dependencies {
     //    compile 'com.jjoe64:graphview:4.2.1'
     implementation files('libs/GraphView-4.2.1.jar')
     implementation project(':min3drotation')
+    implementation files('libs/moshi-1.5.0.jar')
+    implementation files('libs/okio-1.14.0.jar')
 }
 
 configurations.all {
