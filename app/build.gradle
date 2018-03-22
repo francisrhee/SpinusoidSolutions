@@ -29,6 +29,8 @@ dependencies {
     //    compile 'com.jjoe64:graphview:4.2.1'
     implementation files('libs/GraphView-4.2.1.jar')
     implementation project(':min3drotation')
+    implementation project(':aruco')
+
 }
 
 configurations.all {
@@ -40,4 +42,5 @@ configurations.all {
             }
         }
     }
+
 }

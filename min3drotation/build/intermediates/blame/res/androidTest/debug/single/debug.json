@@ -1,22 +1,22 @@
 [
     {
-        "merged": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon.png.flat",
-        "source": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon.png"
+        "merged": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_camaro_obj.flat",
+        "source": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\raw\\camaro_obj"
     },
     {
-        "merged": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw_camaro_obj.flat",
-        "source": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\raw\\camaro_obj"
+        "merged": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_main.xml.flat",
+        "source": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\layout\\main.xml"
     },
     {
-        "merged": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout_main.xml.flat",
-        "source": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\layout\\main.xml"
+        "merged": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_icon.png.flat",
+        "source": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\icon.png"
     },
     {
-        "merged": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldpi-v4_icon.png.flat",
-        "source": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\drawable-ldpi-v4\\icon.png"
+        "merged": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-ldpi-v4_icon.png.flat",
+        "source": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\drawable-ldpi-v4\\icon.png"
     },
     {
-        "merged": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-hdpi-v4_icon.png.flat",
-        "source": "C:\\Users\\francis\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\drawable-hdpi-v4\\icon.png"
+        "merged": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-mdpi-v4_icon.png.flat",
+        "source": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\drawable-mdpi-v4\\icon.png"
     }
 ]
