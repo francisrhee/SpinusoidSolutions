@@ -1,6 +1,7 @@
 package com.example.spinusoidsolutions.spinesolutions;
 //package com.javacreed.examples.gson.part2;
 
+        import android.content.Context;
         import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -15,10 +16,17 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 
 
+        import org.json.JSONObject;
+
+        import java.io.BufferedReader;
+        import java.io.FileReader;
         import java.io.IOException;
-import java.io.InputStreamReader;
+        import java.io.InputStream;
+        import java.io.InputStreamReader;
 import java.io.Reader;
         import java.lang.reflect.Type;
+        import java.nio.file.Files;
+        import java.nio.file.Paths;
         import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -70,7 +78,7 @@ public class AnalyzeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analyze);
-       
+
         try {
             run();
         } catch (Exception e) {
@@ -126,53 +134,10 @@ public class AnalyzeActivity extends AppCompatActivity {
     }
 
     public void run() throws Exception {
-        String json = "[\n" +
-                "  {\n" +
-                "\t\"date\": \"03/01/2018\", \n" +
-                "\t\"left shoulder\" : \"100\", \n" +
-                "\t\"right shoulder\" : \"105\", \n" +
-                "\t\"difference\" : \"5\" \n" +
-                "\t} ,\n" +
-                "    {\n" +
-                "\t\"date\": \"03/02/2018\", \n" +
-                "\t\"left shoulder\" : \"100\", \n" +
-                "\t\"right shoulder\" : \"106\", \n" +
-                "\t\"difference\" : \"6\" \n" +
-                "\t} ,\n" +
-                "    {\n" +
-                "\t\"date\": \"03/03/2018\", \n" +
-                "\t\"left shoulder\" : \"99\", \n" +
-                "\t\"right shoulder\" : \"107\", \n" +
-                "\t\"difference\" : \"8\" \n" +
-                "\t} ,\n" +
-                "    {\n" +
-                "\t\"date\": \"03/04/2018\", \n" +
-                "\t\"left shoulder\" : \"99\", \n" +
-                "\t\"right shoulder\" : \"107\", \n" +
-                "\t\"difference\" : \"8\" \n" +
-                "\t} ,\n" +
-                "    {\n" +
-                "\t\"date\": \"03/05/2018\", \n" +
-                "\t\"left shoulder\" : \"100, \n" +
-                "\t\"right shoulder\" : \"107, \n" +
-                "\t\"difference\" : \"7\" \n" +
-                "\t} ,\n" +
-                "    {\n" +
-                "\t\"date\": \"03/06/2018\", \n" +
-                "\t\"left shoulder\" : \"101, \n" +
-                "\t\"right shoulder\" : \"108, \n" +
-                "\t\"difference\" : \"7\" \n" +
-                "\t} ,\n" +
-                "\t {\n" +
-                "\t\"date\": \"03/07/2018\", \n" +
-                "\t\"left shoulder\" : \"100, \n" +
-                "\t\"right shoulder\" : \"109, \n" +
-                "\t\"difference\" : \"9\" \n" +
-                "\t} \n" +
-                "  \n" +
-                "  ]\n" +
-                " ";
 
+        String fileName = "SpinusoidData.json";
+
+        String json = loadJSONFromAsset(this);
         Moshi moshi = new Moshi.Builder().build();
 
         Type spineDataType = Types.newParameterizedType(List.class, SpineData.class);
@@ -180,6 +145,29 @@ public class AnalyzeActivity extends AppCompatActivity {
 
         List<SpineData> dataArray = jsonAdapter.fromJson(json);
         System.out.println(dataArray);
+    }
+    public String loadJSONFromAsset(Context context) {
+        String json = null;
+        try {
+            InputStream is = context.getAssets().open("SpinusoidData.json");
+
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+
+            is.close();
+
+            json = new String(buffer, "UTF-8");
+
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+
     }
 
 }
