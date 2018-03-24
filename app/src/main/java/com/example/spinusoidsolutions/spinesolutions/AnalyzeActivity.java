@@ -1,9 +1,14 @@
 package com.example.spinusoidsolutions.spinesolutions;
+
 //package com.javacreed.examples.gson.part2;
 
         import android.content.Context;
         import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.DatePicker;
+        import android.widget.EditText;
 
 //import com.google.gson.Gson;
 //import com.google.gson.GsonBuilder;
@@ -16,6 +21,9 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 
 
+        import org.jdatepicker.impl.JDatePanelImpl;
+        import org.jdatepicker.impl.JDatePickerImpl;
+        import org.jdatepicker.impl.UtilDateModel;
         import org.json.JSONObject;
 
         import java.io.BufferedReader;
@@ -31,8 +39,12 @@ import java.io.Reader;
 import java.text.SimpleDateFormat;
         import java.time.LocalDate;
         import java.time.LocalDateTime;
+        import java.util.ArrayList;
         import java.util.Date;
         import java.util.List;
+        import java.util.Locale;
+
+
 
 //Following imports are necessary for JSON parsing
 
@@ -40,6 +52,11 @@ public class AnalyzeActivity extends AppCompatActivity {
 //    ArrayList<String> numberlist = new ArrayList<>();
 
 //    @SuppressLint("SimpleDateFormat")
+    Button submitDatebtn;
+    EditText startDateTxt;
+    EditText endDateTxt;
+
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,28 +64,32 @@ public class AnalyzeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analyze);
         SimpleDateFormat neatDateFormatter= new SimpleDateFormat("MM/dd/yyyy");
-        Date beginningFilterDate = new Date();
-        Date endingFilterDate = new Date();
+
+
+//
+        startDateTxt = (EditText) findViewById(R.id.startDate);
+        endDateTxt = (EditText) findViewById(R.id.endDate);
+        submitDatebtn = (Button) findViewById(R.id.submitDates);
+        submitDatebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    createGraphs();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         try {
-            beginningFilterDate = neatDateFormatter.parse("03/03/2018");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        try {
-            endingFilterDate = neatDateFormatter.parse("04/01/2018");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            createGraphs(beginningFilterDate, endingFilterDate);
+            createGraphs();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void createGraphs(Date beginningFilterDate, Date endingFilterDate) throws Exception {
+    public void createGraphs() throws Exception {
 
         String fileName = "SpinusoidData.json";
 //      reading json file, converting to string
@@ -82,14 +103,33 @@ public class AnalyzeActivity extends AppCompatActivity {
         List<SpineData> dataArray = jsonAdapter.fromJson(json);
 
         SimpleDateFormat dateFormatter=new SimpleDateFormat("MM/dd/yyyy");
+        Date beginningFilterDate = new Date();
+        Date endingFilterDate = new Date();
+        try {
+             beginningFilterDate = dateFormatter.parse(startDateTxt.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        try {
+            endingFilterDate = dateFormatter.parse(endDateTxt.getText().toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
-//        Date currentDate = new Date();
-        Date [] dates = new Date[dataArray.size()];
+
+        List<FormattedSpineData> validDataArray = new ArrayList<>();
+        Date tempDate = new Date();
+        //making new array only including the dates in between the desired ranges.
         for(int i =0; i < dataArray.size(); i++)
         {
             try {
-                dates[i] = dateFormatter.parse(dataArray.get(i).date);
+                tempDate = dateFormatter.parse(dataArray.get(i).date);
+                if(tempDate.after(beginningFilterDate) && tempDate.before(endingFilterDate))
+                {
+                    validDataArray.add(new FormattedSpineData(tempDate, dataArray.get(i).difference));
+                }
             }
             catch (ParseException e)
             {
@@ -97,21 +137,29 @@ public class AnalyzeActivity extends AppCompatActivity {
             }
         }
 
-        for(int i =0; i < dataArray.size(); i++)
+        for(int i =0; i < validDataArray.size(); i++)
         {
-            if(dates[i].after(beginningFilterDate) && dates[i].before(endingFilterDate))
-            series.appendData(new DataPoint(dates[i], dataArray.get(i).difference), true, dataArray.size());
+//           series.appendData(new DataPoint(i, validDataArray.get(i).difference), true, validDataArray.size());;
+            series.appendData(new DataPoint(validDataArray.get(i).formattedDate, validDataArray.get(i).difference), true, validDataArray.size());
         }
         graph.addSeries(series);
         // set date label formatter
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
-        graph.getGridLabelRenderer().setNumHorizontalLabels(dates.length); // only 4 because of the space
+
 
         // set manual x bounds to have nice steps
-        graph.getViewport().setMinX(dates[0].getTime());
-        graph.getViewport().setMaxX(dates[dates.length-1].getTime());
+        graph.getViewport().setMinX(validDataArray.get(0).formattedDate.getTime());
+        graph.getViewport().setMaxX(validDataArray.get(validDataArray.size()-1).formattedDate.getTime());
         graph.getViewport().setXAxisBoundsManual(true);
+
         graph.getGridLabelRenderer().setHumanRounding(true);
+        graph.getGridLabelRenderer().setNumHorizontalLabels(validDataArray.size()); // only 4 because of the space
+        graph.getGridLabelRenderer().setHorizontalLabelsAngle(90);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Date");
+        graph.getGridLabelRenderer().setVerticalAxisTitle("Height Difference (mm)");
+
+        graph.setTitle("Height Difference Tracker");
+//        graph.getGridLabelRenderer().setHorizontalA("Date");
 //
     }
     public String loadJSONFromAsset(Context context) {
