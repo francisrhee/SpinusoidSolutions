@@ -1,6 +1,21 @@
 {
     "logs": [
         {
+            "outputFile": "C:\\Users\\francis\\Downloads\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\francis\\Downloads\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,98",
+                        "endColumns": "42,61",
+                        "endOffsets": "93,155"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
