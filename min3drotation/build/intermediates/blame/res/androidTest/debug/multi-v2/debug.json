@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Noah\\Documents\\Spinusoid Solutions\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\values_values.arsc.flat",
+            "outputFile": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\res\\merged\\androidTest\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Noah\\Documents\\Spinusoid Solutions\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "source": "D:\\Isaac\\Desktop\\SpinusoidSolutions\\min3drotation\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
