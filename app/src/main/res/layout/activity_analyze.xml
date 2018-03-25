@@ -64,8 +64,7 @@
         android:text="Start Date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="15"
-        />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/endLabel"
@@ -75,7 +74,7 @@
         android:layout_alignStart="@+id/endDate"
         android:layout_marginStart="29dp"
         android:text="End Date"
-        android:textSize="15"
+        android:textSize="15sp"
         app:layout_constraintTop_toTopOf="parent" />
 
 </RelativeLayout>
