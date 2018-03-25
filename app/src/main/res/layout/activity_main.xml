@@ -54,6 +54,9 @@
             android:layout_weight="2"
             android:text="Upload" />
 
+        <!--android:centerHorizontal="true"/>-->
+        <!--android:layout_weight="2" -->
+
     </LinearLayout>
 
 </RelativeLayout>

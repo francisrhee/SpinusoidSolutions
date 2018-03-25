@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button collectBtn;
     Button analyzeBtn;
+    Button uploadBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(activityIntent);
             }
         });
-    }
+
+    uploadBtn = (Button) findViewById(R.id.uploadButton);
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+//            Jframe frame = new JFrame("test");
+        }
+    });
+}
 
 
 }

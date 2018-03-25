@@ -147,18 +147,27 @@ public class AnalyzeActivity extends AppCompatActivity {
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
 
 
+        series.setDrawDataPoints(true);
+        series.setDataPointsRadius(10);
+        series.setThickness(8);
+//        series.setOnDataPointTapListener(hi);
+
         // set manual x bounds to have nice steps
         graph.getViewport().setMinX(validDataArray.get(0).formattedDate.getTime());
         graph.getViewport().setMaxX(validDataArray.get(validDataArray.size()-1).formattedDate.getTime());
         graph.getViewport().setXAxisBoundsManual(true);
 
         graph.getGridLabelRenderer().setHumanRounding(true);
+        graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
         graph.getGridLabelRenderer().setNumHorizontalLabels(validDataArray.size()); // only 4 because of the space
         graph.getGridLabelRenderer().setHorizontalLabelsAngle(90);
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Date");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Height Difference (mm)");
+        graph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(12);
+        graph.getGridLabelRenderer().setVerticalAxisTitleTextSize(12);
 
         graph.setTitle("Height Difference Tracker");
+        graph.setTitleTextSize(20);
 //        graph.getGridLabelRenderer().setHorizontalA("Date");
 //
     }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SpinusoidSolutions</string>
+    <color name="lightGrey">#96accc</color>
 </resources>
