@@ -2,6 +2,7 @@ package org.opencv.android;
 
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -12,11 +13,13 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup.LayoutParams;
 
-import org.opencv.BuildConfig;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+
+import static android.R.attr.max;
+import static android.R.attr.tag;
 
 /**
  * This class is an implementation of the Bridge View between OpenCV and Java Camera.
@@ -41,7 +44,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
     protected Camera mCamera;
     protected JavaCameraFrame[] mCameraFrame;
     private SurfaceTexture mSurfaceTexture;
-    private int mPreviewFormat = ImageFormat.NV21;
 
     public static class JavaCameraSizeAccessor implements ListItemAccessor {
 
@@ -66,6 +68,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         super(context, attrs);
     }
 
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     protected boolean initializeCamera(int width, int height) {
         Log.d(TAG, "Initialize java camera");
         boolean result = true;
@@ -123,7 +126,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     } else if (localCameraIndex == CAMERA_ID_FRONT) {
                         Log.e(TAG, "Front camera not found!");
                     } else {
-                        Log.d(TAG, "Trying to open camera with new open(" + Integer.valueOf(localCameraIndex) + ")");
+                        Log.d(TAG, "Trying to open camera with new open(" + localCameraIndex + ")");
                         try {
                             mCamera = Camera.open(localCameraIndex);
                         } catch (RuntimeException e) {
@@ -141,28 +144,30 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                 Camera.Parameters params = mCamera.getParameters();
                 Log.d(TAG, "getSupportedPreviewSizes()");
                 List<android.hardware.Camera.Size> sizes = params.getSupportedPreviewSizes();
+                for(Camera.Size i:sizes)
+                {
+                    Log.d(TAG, "Supported Sizes: "+ i.width + " x " +i.height);
+                }
+                List<Integer> fps1 = params.getSupportedPreviewFrameRates();
+                for(Integer i:fps1)
+                {
+                    Log.d(TAG, "fps range: "+i);
+                }
+                List<int[]> fps= params.getSupportedPreviewFpsRange();
+                for(int[] i:fps)
+                {
+                    Log.d(TAG, "fps range: "+i[0]+ " "+ i[1]);
+                }
+                //params.setPreviewFrameRate(15);
+                //params.setPreviewFpsRange(15000, 15000);
 
                 if (sizes != null) {
                     /* Select the size that fits surface considering maximum size allowed */
                     Size frameSize = calculateCameraFrameSize(sizes, new JavaCameraSizeAccessor(), width, height);
 
-                    /* Image format NV21 causes issues in the Android emulators */
-                    if (Build.FINGERPRINT.startsWith("generic")
-                            || Build.FINGERPRINT.startsWith("unknown")
-                            || Build.MODEL.contains("google_sdk")
-                            || Build.MODEL.contains("Emulator")
-                            || Build.MODEL.contains("Android SDK built for x86")
-                            || Build.MANUFACTURER.contains("Genymotion")
-                            || (Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic"))
-                            || "google_sdk".equals(Build.PRODUCT))
-                        params.setPreviewFormat(ImageFormat.YV12);  // "generic" or "android" = android emulator
-                    else
-                        params.setPreviewFormat(ImageFormat.NV21);
-
-                    mPreviewFormat = params.getPreviewFormat();
-
-                    Log.d(TAG, "Set preview size to " + Integer.valueOf((int)frameSize.width) + "x" + Integer.valueOf((int)frameSize.height));
-                    params.setPreviewSize((int)frameSize.width, (int)frameSize.height);
+                    params.setPreviewFormat(ImageFormat.NV21);
+                    Log.d(TAG, "Set preview size to " + (int) frameSize.width + "x" + (int) frameSize.height);
+                    params.setPreviewSize((int)768,(int) 432);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && !android.os.Build.MODEL.equals("GT-I9100"))
                         params.setRecordingHint(true);
@@ -179,8 +184,11 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                     mFrameWidth = params.getPreviewSize().width;
                     mFrameHeight = params.getPreviewSize().height;
 
+
+                    mCamera.setParameters(params);
+
                     if ((getLayoutParams().width == LayoutParams.MATCH_PARENT) && (getLayoutParams().height == LayoutParams.MATCH_PARENT))
-                        mScale = Math.min(((float)height)/mFrameHeight, ((float)width)/mFrameWidth);
+                        mScale = Math.min(((float)height)/mFrameWidth, ((float)width)/mFrameHeight);
                     else
                         mScale = 0;
 
@@ -209,7 +217,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                         mSurfaceTexture = new SurfaceTexture(MAGIC_TEXTURE_ID);
                         mCamera.setPreviewTexture(mSurfaceTexture);
                     } else
-                       mCamera.setPreviewDisplay(null);
+                        mCamera.setPreviewDisplay(null);
 
                     /* Finally we are ready to start the preview */
                     Log.d(TAG, "startPreview");
@@ -248,6 +256,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
     private boolean mCameraFrameReady = false;
 
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     @Override
     protected boolean connectCamera(int width, int height) {
 
@@ -299,8 +308,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
     @Override
     public void onPreviewFrame(byte[] frame, Camera arg1) {
-        if (BuildConfig.DEBUG)
-            Log.d(TAG, "Preview Frame received. Frame size: " + frame.length);
+        //Log.d(TAG, "Preview Frame received. Frame size: " + frame.length);
         synchronized (this) {
             mFrameChain[mChainIdx].put(0, 0, frame);
             mCameraFrameReady = true;
@@ -318,13 +326,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
         @Override
         public Mat rgba() {
-            if (mPreviewFormat == ImageFormat.NV21)
-                Imgproc.cvtColor(mYuvFrameData, mRgba, Imgproc.COLOR_YUV2RGBA_NV21, 4);
-            else if (mPreviewFormat == ImageFormat.YV12)
-                Imgproc.cvtColor(mYuvFrameData, mRgba, Imgproc.COLOR_YUV2RGB_I420, 4);  // COLOR_YUV2RGBA_YV12 produces inverted colors
-            else
-                throw new IllegalArgumentException("Preview Format can be NV21 or YV12");
-
+            Imgproc.cvtColor(mYuvFrameData, mRgba, Imgproc.COLOR_YUV2RGBA_NV21, 4);
             return mRgba;
         }
 
@@ -351,7 +353,6 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         @Override
         public void run() {
             do {
-                boolean hasFrame = false;
                 synchronized (JavaCameraView.this) {
                     try {
                         while (!mCameraFrameReady && !mStopThread) {
@@ -361,14 +362,11 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
                         e.printStackTrace();
                     }
                     if (mCameraFrameReady)
-                    {
                         mChainIdx = 1 - mChainIdx;
-                        mCameraFrameReady = false;
-                        hasFrame = true;
-                    }
                 }
 
-                if (!mStopThread && hasFrame) {
+                if (!mStopThread && mCameraFrameReady) {
+                    mCameraFrameReady = false;
                     if (!mFrameChain[1 - mChainIdx].empty())
                         deliverAndDrawFrame(mCameraFrame[1 - mChainIdx]);
                 }

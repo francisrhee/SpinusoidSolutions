@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpinusoidSolutions.iml" filepath="$PROJECT_DIR$/SpinusoidSolutions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SpinusoidSolutions.iml" filepath="$PROJECT_DIR$/.idea/SpinusoidSolutions.iml" />
+      <module fileurl="file://D:\Isaac\Desktop\SpinusoidSolutions\SpinusoidSolutions.iml" filepath="D:\Isaac\Desktop\SpinusoidSolutions\SpinusoidSolutions.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/aruco/aruco.iml" filepath="$PROJECT_DIR$/aruco/aruco.iml" />
       <module fileurl="file://$PROJECT_DIR$/min3drotation/min3drotation.iml" filepath="$PROJECT_DIR$/min3drotation/min3drotation.iml" />

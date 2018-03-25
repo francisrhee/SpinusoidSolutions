@@ -78,18 +78,18 @@ public class Calib3d {
     //javadoc: estimateAffine2D(from, to, inliers, method, ransacReprojThreshold, maxIters, confidence, refineIters)
     public static Mat estimateAffine2D(Mat from, Mat to, Mat inliers, int method, double ransacReprojThreshold, long maxIters, double confidence, long refineIters)
     {
-        
+
         Mat retVal = new Mat(estimateAffine2D_0(from.nativeObj, to.nativeObj, inliers.nativeObj, method, ransacReprojThreshold, maxIters, confidence, refineIters));
-        
+
         return retVal;
     }
 
     //javadoc: estimateAffine2D(from, to)
     public static Mat estimateAffine2D(Mat from, Mat to)
     {
-        
+
         Mat retVal = new Mat(estimateAffine2D_1(from.nativeObj, to.nativeObj));
-        
+
         return retVal;
     }
 
@@ -101,18 +101,18 @@ public class Calib3d {
     //javadoc: estimateAffinePartial2D(from, to, inliers, method, ransacReprojThreshold, maxIters, confidence, refineIters)
     public static Mat estimateAffinePartial2D(Mat from, Mat to, Mat inliers, int method, double ransacReprojThreshold, long maxIters, double confidence, long refineIters)
     {
-        
+
         Mat retVal = new Mat(estimateAffinePartial2D_0(from.nativeObj, to.nativeObj, inliers.nativeObj, method, ransacReprojThreshold, maxIters, confidence, refineIters));
-        
+
         return retVal;
     }
 
     //javadoc: estimateAffinePartial2D(from, to)
     public static Mat estimateAffinePartial2D(Mat from, Mat to)
     {
-        
+
         Mat retVal = new Mat(estimateAffinePartial2D_1(from.nativeObj, to.nativeObj));
-        
+
         return retVal;
     }
 
@@ -124,27 +124,27 @@ public class Calib3d {
     //javadoc: findEssentialMat(points1, points2, cameraMatrix, method, prob, threshold, mask)
     public static Mat findEssentialMat(Mat points1, Mat points2, Mat cameraMatrix, int method, double prob, double threshold, Mat mask)
     {
-        
+
         Mat retVal = new Mat(findEssentialMat_0(points1.nativeObj, points2.nativeObj, cameraMatrix.nativeObj, method, prob, threshold, mask.nativeObj));
-        
+
         return retVal;
     }
 
     //javadoc: findEssentialMat(points1, points2, cameraMatrix, method, prob, threshold)
     public static Mat findEssentialMat(Mat points1, Mat points2, Mat cameraMatrix, int method, double prob, double threshold)
     {
-        
+
         Mat retVal = new Mat(findEssentialMat_1(points1.nativeObj, points2.nativeObj, cameraMatrix.nativeObj, method, prob, threshold));
-        
+
         return retVal;
     }
 
     //javadoc: findEssentialMat(points1, points2, cameraMatrix)
     public static Mat findEssentialMat(Mat points1, Mat points2, Mat cameraMatrix)
     {
-        
+
         Mat retVal = new Mat(findEssentialMat_2(points1.nativeObj, points2.nativeObj, cameraMatrix.nativeObj));
-        
+
         return retVal;
     }
 
@@ -156,27 +156,27 @@ public class Calib3d {
     //javadoc: findEssentialMat(points1, points2, focal, pp, method, prob, threshold, mask)
     public static Mat findEssentialMat(Mat points1, Mat points2, double focal, Point pp, int method, double prob, double threshold, Mat mask)
     {
-        
+
         Mat retVal = new Mat(findEssentialMat_3(points1.nativeObj, points2.nativeObj, focal, pp.x, pp.y, method, prob, threshold, mask.nativeObj));
-        
+
         return retVal;
     }
 
     //javadoc: findEssentialMat(points1, points2, focal, pp, method, prob, threshold)
     public static Mat findEssentialMat(Mat points1, Mat points2, double focal, Point pp, int method, double prob, double threshold)
     {
-        
+
         Mat retVal = new Mat(findEssentialMat_4(points1.nativeObj, points2.nativeObj, focal, pp.x, pp.y, method, prob, threshold));
-        
+
         return retVal;
     }
 
     //javadoc: findEssentialMat(points1, points2)
     public static Mat findEssentialMat(Mat points1, Mat points2)
     {
-        
+
         Mat retVal = new Mat(findEssentialMat_5(points1.nativeObj, points2.nativeObj));
-        
+
         return retVal;
     }
 
@@ -191,7 +191,7 @@ public class Calib3d {
         Mat points1_mat = points1;
         Mat points2_mat = points2;
         Mat retVal = new Mat(findFundamentalMat_0(points1_mat.nativeObj, points2_mat.nativeObj, method, param1, param2, mask.nativeObj));
-        
+
         return retVal;
     }
 
@@ -201,7 +201,7 @@ public class Calib3d {
         Mat points1_mat = points1;
         Mat points2_mat = points2;
         Mat retVal = new Mat(findFundamentalMat_1(points1_mat.nativeObj, points2_mat.nativeObj, method, param1, param2));
-        
+
         return retVal;
     }
 
@@ -211,7 +211,7 @@ public class Calib3d {
         Mat points1_mat = points1;
         Mat points2_mat = points2;
         Mat retVal = new Mat(findFundamentalMat_2(points1_mat.nativeObj, points2_mat.nativeObj));
-        
+
         return retVal;
     }
 
@@ -226,7 +226,7 @@ public class Calib3d {
         Mat srcPoints_mat = srcPoints;
         Mat dstPoints_mat = dstPoints;
         Mat retVal = new Mat(findHomography_0(srcPoints_mat.nativeObj, dstPoints_mat.nativeObj, method, ransacReprojThreshold, mask.nativeObj, maxIters, confidence));
-        
+
         return retVal;
     }
 
@@ -236,7 +236,7 @@ public class Calib3d {
         Mat srcPoints_mat = srcPoints;
         Mat dstPoints_mat = dstPoints;
         Mat retVal = new Mat(findHomography_1(srcPoints_mat.nativeObj, dstPoints_mat.nativeObj, method, ransacReprojThreshold));
-        
+
         return retVal;
     }
 
@@ -246,7 +246,7 @@ public class Calib3d {
         Mat srcPoints_mat = srcPoints;
         Mat dstPoints_mat = dstPoints;
         Mat retVal = new Mat(findHomography_2(srcPoints_mat.nativeObj, dstPoints_mat.nativeObj));
-        
+
         return retVal;
     }
 
@@ -260,16 +260,16 @@ public class Calib3d {
     {
         double[] validPixROI_out = new double[4];
         Mat retVal = new Mat(getOptimalNewCameraMatrix_0(cameraMatrix.nativeObj, distCoeffs.nativeObj, imageSize.width, imageSize.height, alpha, newImgSize.width, newImgSize.height, validPixROI_out, centerPrincipalPoint));
-        if(validPixROI!=null){ validPixROI.x = (int)validPixROI_out[0]; validPixROI.y = (int)validPixROI_out[1]; validPixROI.width = (int)validPixROI_out[2]; validPixROI.height = (int)validPixROI_out[3]; } 
+        if(validPixROI!=null){ validPixROI.x = (int)validPixROI_out[0]; validPixROI.y = (int)validPixROI_out[1]; validPixROI.width = (int)validPixROI_out[2]; validPixROI.height = (int)validPixROI_out[3]; }
         return retVal;
     }
 
     //javadoc: getOptimalNewCameraMatrix(cameraMatrix, distCoeffs, imageSize, alpha)
     public static Mat getOptimalNewCameraMatrix(Mat cameraMatrix, Mat distCoeffs, Size imageSize, double alpha)
     {
-        
+
         Mat retVal = new Mat(getOptimalNewCameraMatrix_1(cameraMatrix.nativeObj, distCoeffs.nativeObj, imageSize.width, imageSize.height, alpha));
-        
+
         return retVal;
     }
 
@@ -286,7 +286,7 @@ public class Calib3d {
         List<Mat> imagePoints_tmplm = new ArrayList<Mat>((imagePoints != null) ? imagePoints.size() : 0);
         Mat imagePoints_mat = Converters.vector_vector_Point2f_to_Mat(imagePoints, imagePoints_tmplm);
         Mat retVal = new Mat(initCameraMatrix2D_0(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, imageSize.width, imageSize.height, aspectRatio));
-        
+
         return retVal;
     }
 
@@ -298,7 +298,7 @@ public class Calib3d {
         List<Mat> imagePoints_tmplm = new ArrayList<Mat>((imagePoints != null) ? imagePoints.size() : 0);
         Mat imagePoints_mat = Converters.vector_vector_Point2f_to_Mat(imagePoints, imagePoints_tmplm);
         Mat retVal = new Mat(initCameraMatrix2D_1(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, imageSize.width, imageSize.height));
-        
+
         return retVal;
     }
 
@@ -310,9 +310,9 @@ public class Calib3d {
     //javadoc: getValidDisparityROI(roi1, roi2, minDisparity, numberOfDisparities, SADWindowSize)
     public static Rect getValidDisparityROI(Rect roi1, Rect roi2, int minDisparity, int numberOfDisparities, int SADWindowSize)
     {
-        
+
         Rect retVal = new Rect(getValidDisparityROI_0(roi1.x, roi1.y, roi1.width, roi1.height, roi2.x, roi2.y, roi2.width, roi2.height, minDisparity, numberOfDisparities, SADWindowSize));
-        
+
         return retVal;
     }
 
@@ -324,18 +324,18 @@ public class Calib3d {
     //javadoc: RQDecomp3x3(src, mtxR, mtxQ, Qx, Qy, Qz)
     public static double[] RQDecomp3x3(Mat src, Mat mtxR, Mat mtxQ, Mat Qx, Mat Qy, Mat Qz)
     {
-        
+
         double[] retVal = RQDecomp3x3_0(src.nativeObj, mtxR.nativeObj, mtxQ.nativeObj, Qx.nativeObj, Qy.nativeObj, Qz.nativeObj);
-        
+
         return retVal;
     }
 
     //javadoc: RQDecomp3x3(src, mtxR, mtxQ)
     public static double[] RQDecomp3x3(Mat src, Mat mtxR, Mat mtxQ)
     {
-        
+
         double[] retVal = RQDecomp3x3_1(src.nativeObj, mtxR.nativeObj, mtxQ.nativeObj);
-        
+
         return retVal;
     }
 
@@ -349,7 +349,7 @@ public class Calib3d {
     {
         Mat corners_mat = corners;
         boolean retVal = findChessboardCorners_0(image.nativeObj, patternSize.width, patternSize.height, corners_mat.nativeObj, flags);
-        
+
         return retVal;
     }
 
@@ -358,7 +358,7 @@ public class Calib3d {
     {
         Mat corners_mat = corners;
         boolean retVal = findChessboardCorners_1(image.nativeObj, patternSize.width, patternSize.height, corners_mat.nativeObj);
-        
+
         return retVal;
     }
 
@@ -377,18 +377,18 @@ public class Calib3d {
     //javadoc: findCirclesGrid(image, patternSize, centers, flags)
     public static boolean findCirclesGrid(Mat image, Size patternSize, Mat centers, int flags)
     {
-        
+
         boolean retVal = findCirclesGrid_0(image.nativeObj, patternSize.width, patternSize.height, centers.nativeObj, flags);
-        
+
         return retVal;
     }
 
     //javadoc: findCirclesGrid(image, patternSize, centers)
     public static boolean findCirclesGrid(Mat image, Size patternSize, Mat centers)
     {
-        
+
         boolean retVal = findCirclesGrid_1(image.nativeObj, patternSize.width, patternSize.height, centers.nativeObj);
-        
+
         return retVal;
     }
 
@@ -404,7 +404,7 @@ public class Calib3d {
         Mat imagePoints_mat = imagePoints;
         Mat distCoeffs_mat = distCoeffs;
         boolean retVal = solvePnP_0(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, useExtrinsicGuess, flags);
-        
+
         return retVal;
     }
 
@@ -415,7 +415,7 @@ public class Calib3d {
         Mat imagePoints_mat = imagePoints;
         Mat distCoeffs_mat = distCoeffs;
         boolean retVal = solvePnP_1(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, rvec.nativeObj, tvec.nativeObj);
-        
+
         return retVal;
     }
 
@@ -431,7 +431,7 @@ public class Calib3d {
         Mat imagePoints_mat = imagePoints;
         Mat distCoeffs_mat = distCoeffs;
         boolean retVal = solvePnPRansac_0(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, useExtrinsicGuess, iterationsCount, reprojectionError, confidence, inliers.nativeObj, flags);
-        
+
         return retVal;
     }
 
@@ -442,7 +442,7 @@ public class Calib3d {
         Mat imagePoints_mat = imagePoints;
         Mat distCoeffs_mat = distCoeffs;
         boolean retVal = solvePnPRansac_1(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, rvec.nativeObj, tvec.nativeObj);
-        
+
         return retVal;
     }
 
@@ -454,18 +454,18 @@ public class Calib3d {
     //javadoc: stereoRectifyUncalibrated(points1, points2, F, imgSize, H1, H2, threshold)
     public static boolean stereoRectifyUncalibrated(Mat points1, Mat points2, Mat F, Size imgSize, Mat H1, Mat H2, double threshold)
     {
-        
+
         boolean retVal = stereoRectifyUncalibrated_0(points1.nativeObj, points2.nativeObj, F.nativeObj, imgSize.width, imgSize.height, H1.nativeObj, H2.nativeObj, threshold);
-        
+
         return retVal;
     }
 
     //javadoc: stereoRectifyUncalibrated(points1, points2, F, imgSize, H1, H2)
     public static boolean stereoRectifyUncalibrated(Mat points1, Mat points2, Mat F, Size imgSize, Mat H1, Mat H2)
     {
-        
+
         boolean retVal = stereoRectifyUncalibrated_1(points1.nativeObj, points2.nativeObj, F.nativeObj, imgSize.width, imgSize.height, H1.nativeObj, H2.nativeObj);
-        
+
         return retVal;
     }
 
@@ -577,9 +577,9 @@ public class Calib3d {
     //javadoc: sampsonDistance(pt1, pt2, F)
     public static double sampsonDistance(Mat pt1, Mat pt2, Mat F)
     {
-        
+
         double retVal = sampsonDistance_0(pt1.nativeObj, pt2.nativeObj, F.nativeObj);
-        
+
         return retVal;
     }
 
@@ -595,7 +595,7 @@ public class Calib3d {
         Mat imagePoints1_mat = Converters.vector_Mat_to_Mat(imagePoints1);
         Mat imagePoints2_mat = Converters.vector_Mat_to_Mat(imagePoints2);
         double retVal = stereoCalibrate_0(objectPoints_mat.nativeObj, imagePoints1_mat.nativeObj, imagePoints2_mat.nativeObj, cameraMatrix1.nativeObj, distCoeffs1.nativeObj, cameraMatrix2.nativeObj, distCoeffs2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj, E.nativeObj, F.nativeObj, flags, criteria.type, criteria.maxCount, criteria.epsilon);
-        
+
         return retVal;
     }
 
@@ -606,7 +606,7 @@ public class Calib3d {
         Mat imagePoints1_mat = Converters.vector_Mat_to_Mat(imagePoints1);
         Mat imagePoints2_mat = Converters.vector_Mat_to_Mat(imagePoints2);
         double retVal = stereoCalibrate_1(objectPoints_mat.nativeObj, imagePoints1_mat.nativeObj, imagePoints2_mat.nativeObj, cameraMatrix1.nativeObj, distCoeffs1.nativeObj, cameraMatrix2.nativeObj, distCoeffs2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj, E.nativeObj, F.nativeObj, flags);
-        
+
         return retVal;
     }
 
@@ -617,7 +617,7 @@ public class Calib3d {
         Mat imagePoints1_mat = Converters.vector_Mat_to_Mat(imagePoints1);
         Mat imagePoints2_mat = Converters.vector_Mat_to_Mat(imagePoints2);
         double retVal = stereoCalibrate_2(objectPoints_mat.nativeObj, imagePoints1_mat.nativeObj, imagePoints2_mat.nativeObj, cameraMatrix1.nativeObj, distCoeffs1.nativeObj, cameraMatrix2.nativeObj, distCoeffs2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj, E.nativeObj, F.nativeObj);
-        
+
         return retVal;
     }
 
@@ -683,7 +683,7 @@ public class Calib3d {
         Mat imagePoints1_mat = Converters.vector_Mat_to_Mat(imagePoints1);
         Mat imagePoints2_mat = Converters.vector_Mat_to_Mat(imagePoints2);
         double retVal = stereoCalibrate_3(objectPoints_mat.nativeObj, imagePoints1_mat.nativeObj, imagePoints2_mat.nativeObj, K1.nativeObj, D1.nativeObj, K2.nativeObj, D2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj, flags, criteria.type, criteria.maxCount, criteria.epsilon);
-        
+
         return retVal;
     }
 
@@ -694,7 +694,7 @@ public class Calib3d {
         Mat imagePoints1_mat = Converters.vector_Mat_to_Mat(imagePoints1);
         Mat imagePoints2_mat = Converters.vector_Mat_to_Mat(imagePoints2);
         double retVal = stereoCalibrate_4(objectPoints_mat.nativeObj, imagePoints1_mat.nativeObj, imagePoints2_mat.nativeObj, K1.nativeObj, D1.nativeObj, K2.nativeObj, D2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj, flags);
-        
+
         return retVal;
     }
 
@@ -705,7 +705,7 @@ public class Calib3d {
         Mat imagePoints1_mat = Converters.vector_Mat_to_Mat(imagePoints1);
         Mat imagePoints2_mat = Converters.vector_Mat_to_Mat(imagePoints2);
         double retVal = stereoCalibrate_5(objectPoints_mat.nativeObj, imagePoints1_mat.nativeObj, imagePoints2_mat.nativeObj, K1.nativeObj, D1.nativeObj, K2.nativeObj, D2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj);
-        
+
         return retVal;
     }
 
@@ -722,8 +722,8 @@ public class Calib3d {
         double[] roi1_out = new double[4];
         double[] roi2_out = new double[4];
         float retVal = rectify3Collinear_0(cameraMatrix1.nativeObj, distCoeffs1.nativeObj, cameraMatrix2.nativeObj, distCoeffs2.nativeObj, cameraMatrix3.nativeObj, distCoeffs3.nativeObj, imgpt1_mat.nativeObj, imgpt3_mat.nativeObj, imageSize.width, imageSize.height, R12.nativeObj, T12.nativeObj, R13.nativeObj, T13.nativeObj, R1.nativeObj, R2.nativeObj, R3.nativeObj, P1.nativeObj, P2.nativeObj, P3.nativeObj, Q.nativeObj, alpha, newImgSize.width, newImgSize.height, roi1_out, roi2_out, flags);
-        if(roi1!=null){ roi1.x = (int)roi1_out[0]; roi1.y = (int)roi1_out[1]; roi1.width = (int)roi1_out[2]; roi1.height = (int)roi1_out[3]; } 
-        if(roi2!=null){ roi2.x = (int)roi2_out[0]; roi2.y = (int)roi2_out[1]; roi2.width = (int)roi2_out[2]; roi2.height = (int)roi2_out[3]; } 
+        if(roi1!=null){ roi1.x = (int)roi1_out[0]; roi1.y = (int)roi1_out[1]; roi1.width = (int)roi1_out[2]; roi1.height = (int)roi1_out[3]; }
+        if(roi2!=null){ roi2.x = (int)roi2_out[0]; roi2.y = (int)roi2_out[1]; roi2.width = (int)roi2_out[2]; roi2.height = (int)roi2_out[3]; }
         return retVal;
     }
 
@@ -756,18 +756,18 @@ public class Calib3d {
     //javadoc: estimateAffine3D(src, dst, out, inliers, ransacThreshold, confidence)
     public static int estimateAffine3D(Mat src, Mat dst, Mat out, Mat inliers, double ransacThreshold, double confidence)
     {
-        
+
         int retVal = estimateAffine3D_0(src.nativeObj, dst.nativeObj, out.nativeObj, inliers.nativeObj, ransacThreshold, confidence);
-        
+
         return retVal;
     }
 
     //javadoc: estimateAffine3D(src, dst, out, inliers)
     public static int estimateAffine3D(Mat src, Mat dst, Mat out, Mat inliers)
     {
-        
+
         int retVal = estimateAffine3D_1(src.nativeObj, dst.nativeObj, out.nativeObj, inliers.nativeObj);
-        
+
         return retVal;
     }
 
@@ -779,27 +779,27 @@ public class Calib3d {
     //javadoc: recoverPose(E, points1, points2, R, t, focal, pp, mask)
     public static int recoverPose(Mat E, Mat points1, Mat points2, Mat R, Mat t, double focal, Point pp, Mat mask)
     {
-        
+
         int retVal = recoverPose_0(E.nativeObj, points1.nativeObj, points2.nativeObj, R.nativeObj, t.nativeObj, focal, pp.x, pp.y, mask.nativeObj);
-        
+
         return retVal;
     }
 
     //javadoc: recoverPose(E, points1, points2, R, t, focal, pp)
     public static int recoverPose(Mat E, Mat points1, Mat points2, Mat R, Mat t, double focal, Point pp)
     {
-        
+
         int retVal = recoverPose_1(E.nativeObj, points1.nativeObj, points2.nativeObj, R.nativeObj, t.nativeObj, focal, pp.x, pp.y);
-        
+
         return retVal;
     }
 
     //javadoc: recoverPose(E, points1, points2, R, t)
     public static int recoverPose(Mat E, Mat points1, Mat points2, Mat R, Mat t)
     {
-        
+
         int retVal = recoverPose_2(E.nativeObj, points1.nativeObj, points2.nativeObj, R.nativeObj, t.nativeObj);
-        
+
         return retVal;
     }
 
@@ -811,18 +811,18 @@ public class Calib3d {
     //javadoc: recoverPose(E, points1, points2, cameraMatrix, R, t, mask)
     public static int recoverPose(Mat E, Mat points1, Mat points2, Mat cameraMatrix, Mat R, Mat t, Mat mask)
     {
-        
+
         int retVal = recoverPose_3(E.nativeObj, points1.nativeObj, points2.nativeObj, cameraMatrix.nativeObj, R.nativeObj, t.nativeObj, mask.nativeObj);
-        
+
         return retVal;
     }
 
     //javadoc: recoverPose(E, points1, points2, cameraMatrix, R, t)
     public static int recoverPose(Mat E, Mat points1, Mat points2, Mat cameraMatrix, Mat R, Mat t)
     {
-        
+
         int retVal = recoverPose_4(E.nativeObj, points1.nativeObj, points2.nativeObj, cameraMatrix.nativeObj, R.nativeObj, t.nativeObj);
-        
+
         return retVal;
     }
 
@@ -834,18 +834,18 @@ public class Calib3d {
     //javadoc: recoverPose(E, points1, points2, cameraMatrix, R, t, distanceThresh, mask, triangulatedPoints)
     public static int recoverPose(Mat E, Mat points1, Mat points2, Mat cameraMatrix, Mat R, Mat t, double distanceThresh, Mat mask, Mat triangulatedPoints)
     {
-        
+
         int retVal = recoverPose_5(E.nativeObj, points1.nativeObj, points2.nativeObj, cameraMatrix.nativeObj, R.nativeObj, t.nativeObj, distanceThresh, mask.nativeObj, triangulatedPoints.nativeObj);
-        
+
         return retVal;
     }
 
     //javadoc: recoverPose(E, points1, points2, cameraMatrix, R, t, distanceThresh)
     public static int recoverPose(Mat E, Mat points1, Mat points2, Mat cameraMatrix, Mat R, Mat t, double distanceThresh)
     {
-        
+
         int retVal = recoverPose_6(E.nativeObj, points1.nativeObj, points2.nativeObj, cameraMatrix.nativeObj, R.nativeObj, t.nativeObj, distanceThresh);
-        
+
         return retVal;
     }
 
@@ -875,18 +875,18 @@ public class Calib3d {
     //javadoc: Rodrigues(src, dst, jacobian)
     public static void Rodrigues(Mat src, Mat dst, Mat jacobian)
     {
-        
+
         Rodrigues_0(src.nativeObj, dst.nativeObj, jacobian.nativeObj);
-        
+
         return;
     }
 
     //javadoc: Rodrigues(src, dst)
     public static void Rodrigues(Mat src, Mat dst)
     {
-        
+
         Rodrigues_1(src.nativeObj, dst.nativeObj);
-        
+
         return;
     }
 
@@ -907,7 +907,7 @@ public class Calib3d {
         if(fovx!=null) fovx[0] = (double)fovx_out[0];
         if(fovy!=null) fovy[0] = (double)fovy_out[0];
         if(focalLength!=null) focalLength[0] = (double)focalLength_out[0];
-        if(principalPoint!=null){ principalPoint.x = principalPoint_out[0]; principalPoint.y = principalPoint_out[1]; } 
+        if(principalPoint!=null){ principalPoint.x = principalPoint_out[0]; principalPoint.y = principalPoint_out[1]; }
         if(aspectRatio!=null) aspectRatio[0] = (double)aspectRatio_out[0];
         return;
     }
@@ -920,18 +920,18 @@ public class Calib3d {
     //javadoc: composeRT(rvec1, tvec1, rvec2, tvec2, rvec3, tvec3, dr3dr1, dr3dt1, dr3dr2, dr3dt2, dt3dr1, dt3dt1, dt3dr2, dt3dt2)
     public static void composeRT(Mat rvec1, Mat tvec1, Mat rvec2, Mat tvec2, Mat rvec3, Mat tvec3, Mat dr3dr1, Mat dr3dt1, Mat dr3dr2, Mat dr3dt2, Mat dt3dr1, Mat dt3dt1, Mat dt3dr2, Mat dt3dt2)
     {
-        
+
         composeRT_0(rvec1.nativeObj, tvec1.nativeObj, rvec2.nativeObj, tvec2.nativeObj, rvec3.nativeObj, tvec3.nativeObj, dr3dr1.nativeObj, dr3dt1.nativeObj, dr3dr2.nativeObj, dr3dt2.nativeObj, dt3dr1.nativeObj, dt3dt1.nativeObj, dt3dr2.nativeObj, dt3dt2.nativeObj);
-        
+
         return;
     }
 
     //javadoc: composeRT(rvec1, tvec1, rvec2, tvec2, rvec3, tvec3)
     public static void composeRT(Mat rvec1, Mat tvec1, Mat rvec2, Mat tvec2, Mat rvec3, Mat tvec3)
     {
-        
+
         composeRT_1(rvec1.nativeObj, tvec1.nativeObj, rvec2.nativeObj, tvec2.nativeObj, rvec3.nativeObj, tvec3.nativeObj);
-        
+
         return;
     }
 
@@ -943,9 +943,9 @@ public class Calib3d {
     //javadoc: computeCorrespondEpilines(points, whichImage, F, lines)
     public static void computeCorrespondEpilines(Mat points, int whichImage, Mat F, Mat lines)
     {
-        
+
         computeCorrespondEpilines_0(points.nativeObj, whichImage, F.nativeObj, lines.nativeObj);
-        
+
         return;
     }
 
@@ -957,9 +957,9 @@ public class Calib3d {
     //javadoc: convertPointsFromHomogeneous(src, dst)
     public static void convertPointsFromHomogeneous(Mat src, Mat dst)
     {
-        
+
         convertPointsFromHomogeneous_0(src.nativeObj, dst.nativeObj);
-        
+
         return;
     }
 
@@ -971,9 +971,9 @@ public class Calib3d {
     //javadoc: convertPointsToHomogeneous(src, dst)
     public static void convertPointsToHomogeneous(Mat src, Mat dst)
     {
-        
+
         convertPointsToHomogeneous_0(src.nativeObj, dst.nativeObj);
-        
+
         return;
     }
 
@@ -985,9 +985,9 @@ public class Calib3d {
     //javadoc: correctMatches(F, points1, points2, newPoints1, newPoints2)
     public static void correctMatches(Mat F, Mat points1, Mat points2, Mat newPoints1, Mat newPoints2)
     {
-        
+
         correctMatches_0(F.nativeObj, points1.nativeObj, points2.nativeObj, newPoints1.nativeObj, newPoints2.nativeObj);
-        
+
         return;
     }
 
@@ -999,9 +999,9 @@ public class Calib3d {
     //javadoc: decomposeEssentialMat(E, R1, R2, t)
     public static void decomposeEssentialMat(Mat E, Mat R1, Mat R2, Mat t)
     {
-        
+
         decomposeEssentialMat_0(E.nativeObj, R1.nativeObj, R2.nativeObj, t.nativeObj);
-        
+
         return;
     }
 
@@ -1013,18 +1013,18 @@ public class Calib3d {
     //javadoc: decomposeProjectionMatrix(projMatrix, cameraMatrix, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ, eulerAngles)
     public static void decomposeProjectionMatrix(Mat projMatrix, Mat cameraMatrix, Mat rotMatrix, Mat transVect, Mat rotMatrixX, Mat rotMatrixY, Mat rotMatrixZ, Mat eulerAngles)
     {
-        
+
         decomposeProjectionMatrix_0(projMatrix.nativeObj, cameraMatrix.nativeObj, rotMatrix.nativeObj, transVect.nativeObj, rotMatrixX.nativeObj, rotMatrixY.nativeObj, rotMatrixZ.nativeObj, eulerAngles.nativeObj);
-        
+
         return;
     }
 
     //javadoc: decomposeProjectionMatrix(projMatrix, cameraMatrix, rotMatrix, transVect)
     public static void decomposeProjectionMatrix(Mat projMatrix, Mat cameraMatrix, Mat rotMatrix, Mat transVect)
     {
-        
+
         decomposeProjectionMatrix_1(projMatrix.nativeObj, cameraMatrix.nativeObj, rotMatrix.nativeObj, transVect.nativeObj);
-        
+
         return;
     }
 
@@ -1038,7 +1038,7 @@ public class Calib3d {
     {
         Mat corners_mat = corners;
         drawChessboardCorners_0(image.nativeObj, patternSize.width, patternSize.height, corners_mat.nativeObj, patternWasFound);
-        
+
         return;
     }
 
@@ -1050,18 +1050,18 @@ public class Calib3d {
     //javadoc: filterSpeckles(img, newVal, maxSpeckleSize, maxDiff, buf)
     public static void filterSpeckles(Mat img, double newVal, int maxSpeckleSize, double maxDiff, Mat buf)
     {
-        
+
         filterSpeckles_0(img.nativeObj, newVal, maxSpeckleSize, maxDiff, buf.nativeObj);
-        
+
         return;
     }
 
     //javadoc: filterSpeckles(img, newVal, maxSpeckleSize, maxDiff)
     public static void filterSpeckles(Mat img, double newVal, int maxSpeckleSize, double maxDiff)
     {
-        
+
         filterSpeckles_1(img.nativeObj, newVal, maxSpeckleSize, maxDiff);
-        
+
         return;
     }
 
@@ -1073,9 +1073,9 @@ public class Calib3d {
     //javadoc: matMulDeriv(A, B, dABdA, dABdB)
     public static void matMulDeriv(Mat A, Mat B, Mat dABdA, Mat dABdB)
     {
-        
+
         matMulDeriv_0(A.nativeObj, B.nativeObj, dABdA.nativeObj, dABdB.nativeObj);
-        
+
         return;
     }
 
@@ -1091,7 +1091,7 @@ public class Calib3d {
         Mat distCoeffs_mat = distCoeffs;
         Mat imagePoints_mat = imagePoints;
         projectPoints_0(objectPoints_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, imagePoints_mat.nativeObj, jacobian.nativeObj, aspectRatio);
-        
+
         return;
     }
 
@@ -1101,8 +1101,8 @@ public class Calib3d {
         Mat objectPoints_mat = objectPoints;
         Mat distCoeffs_mat = distCoeffs;
         Mat imagePoints_mat = imagePoints;
-        projectPoints_1(objectPoints_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, imagePoints_mat.nativeObj);
-        
+        projectPoints_3(objectPoints_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, cameraMatrix.nativeObj, distCoeffs_mat.nativeObj, imagePoints_mat.nativeObj);
+
         return;
     }
 
@@ -1114,27 +1114,27 @@ public class Calib3d {
     //javadoc: reprojectImageTo3D(disparity, _3dImage, Q, handleMissingValues, ddepth)
     public static void reprojectImageTo3D(Mat disparity, Mat _3dImage, Mat Q, boolean handleMissingValues, int ddepth)
     {
-        
+
         reprojectImageTo3D_0(disparity.nativeObj, _3dImage.nativeObj, Q.nativeObj, handleMissingValues, ddepth);
-        
+
         return;
     }
 
     //javadoc: reprojectImageTo3D(disparity, _3dImage, Q, handleMissingValues)
     public static void reprojectImageTo3D(Mat disparity, Mat _3dImage, Mat Q, boolean handleMissingValues)
     {
-        
+
         reprojectImageTo3D_1(disparity.nativeObj, _3dImage.nativeObj, Q.nativeObj, handleMissingValues);
-        
+
         return;
     }
 
     //javadoc: reprojectImageTo3D(disparity, _3dImage, Q)
     public static void reprojectImageTo3D(Mat disparity, Mat _3dImage, Mat Q)
     {
-        
+
         reprojectImageTo3D_2(disparity.nativeObj, _3dImage.nativeObj, Q.nativeObj);
-        
+
         return;
     }
 
@@ -1149,17 +1149,17 @@ public class Calib3d {
         double[] validPixROI1_out = new double[4];
         double[] validPixROI2_out = new double[4];
         stereoRectify_0(cameraMatrix1.nativeObj, distCoeffs1.nativeObj, cameraMatrix2.nativeObj, distCoeffs2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj, R1.nativeObj, R2.nativeObj, P1.nativeObj, P2.nativeObj, Q.nativeObj, flags, alpha, newImageSize.width, newImageSize.height, validPixROI1_out, validPixROI2_out);
-        if(validPixROI1!=null){ validPixROI1.x = (int)validPixROI1_out[0]; validPixROI1.y = (int)validPixROI1_out[1]; validPixROI1.width = (int)validPixROI1_out[2]; validPixROI1.height = (int)validPixROI1_out[3]; } 
-        if(validPixROI2!=null){ validPixROI2.x = (int)validPixROI2_out[0]; validPixROI2.y = (int)validPixROI2_out[1]; validPixROI2.width = (int)validPixROI2_out[2]; validPixROI2.height = (int)validPixROI2_out[3]; } 
+        if(validPixROI1!=null){ validPixROI1.x = (int)validPixROI1_out[0]; validPixROI1.y = (int)validPixROI1_out[1]; validPixROI1.width = (int)validPixROI1_out[2]; validPixROI1.height = (int)validPixROI1_out[3]; }
+        if(validPixROI2!=null){ validPixROI2.x = (int)validPixROI2_out[0]; validPixROI2.y = (int)validPixROI2_out[1]; validPixROI2.width = (int)validPixROI2_out[2]; validPixROI2.height = (int)validPixROI2_out[3]; }
         return;
     }
 
     //javadoc: stereoRectify(cameraMatrix1, distCoeffs1, cameraMatrix2, distCoeffs2, imageSize, R, T, R1, R2, P1, P2, Q)
     public static void stereoRectify(Mat cameraMatrix1, Mat distCoeffs1, Mat cameraMatrix2, Mat distCoeffs2, Size imageSize, Mat R, Mat T, Mat R1, Mat R2, Mat P1, Mat P2, Mat Q)
     {
-        
+
         stereoRectify_1(cameraMatrix1.nativeObj, distCoeffs1.nativeObj, cameraMatrix2.nativeObj, distCoeffs2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, T.nativeObj, R1.nativeObj, R2.nativeObj, P1.nativeObj, P2.nativeObj, Q.nativeObj);
-        
+
         return;
     }
 
@@ -1171,9 +1171,9 @@ public class Calib3d {
     //javadoc: triangulatePoints(projMatr1, projMatr2, projPoints1, projPoints2, points4D)
     public static void triangulatePoints(Mat projMatr1, Mat projMatr2, Mat projPoints1, Mat projPoints2, Mat points4D)
     {
-        
+
         triangulatePoints_0(projMatr1.nativeObj, projMatr2.nativeObj, projPoints1.nativeObj, projPoints2.nativeObj, points4D.nativeObj);
-        
+
         return;
     }
 
@@ -1185,18 +1185,18 @@ public class Calib3d {
     //javadoc: validateDisparity(disparity, cost, minDisparity, numberOfDisparities, disp12MaxDisp)
     public static void validateDisparity(Mat disparity, Mat cost, int minDisparity, int numberOfDisparities, int disp12MaxDisp)
     {
-        
+
         validateDisparity_0(disparity.nativeObj, cost.nativeObj, minDisparity, numberOfDisparities, disp12MaxDisp);
-        
+
         return;
     }
 
     //javadoc: validateDisparity(disparity, cost, minDisparity, numberOfDisparities)
     public static void validateDisparity(Mat disparity, Mat cost, int minDisparity, int numberOfDisparities)
     {
-        
+
         validateDisparity_1(disparity.nativeObj, cost.nativeObj, minDisparity, numberOfDisparities);
-        
+
         return;
     }
 
@@ -1208,18 +1208,18 @@ public class Calib3d {
     //javadoc: distortPoints(undistorted, distorted, K, D, alpha)
     public static void distortPoints(Mat undistorted, Mat distorted, Mat K, Mat D, double alpha)
     {
-        
+
         distortPoints_0(undistorted.nativeObj, distorted.nativeObj, K.nativeObj, D.nativeObj, alpha);
-        
+
         return;
     }
 
     //javadoc: distortPoints(undistorted, distorted, K, D)
     public static void distortPoints(Mat undistorted, Mat distorted, Mat K, Mat D)
     {
-        
+
         distortPoints_1(undistorted.nativeObj, distorted.nativeObj, K.nativeObj, D.nativeObj);
-        
+
         return;
     }
 
@@ -1231,18 +1231,18 @@ public class Calib3d {
     //javadoc: estimateNewCameraMatrixForUndistortRectify(K, D, image_size, R, P, balance, new_size, fov_scale)
     public static void estimateNewCameraMatrixForUndistortRectify(Mat K, Mat D, Size image_size, Mat R, Mat P, double balance, Size new_size, double fov_scale)
     {
-        
+
         estimateNewCameraMatrixForUndistortRectify_0(K.nativeObj, D.nativeObj, image_size.width, image_size.height, R.nativeObj, P.nativeObj, balance, new_size.width, new_size.height, fov_scale);
-        
+
         return;
     }
 
     //javadoc: estimateNewCameraMatrixForUndistortRectify(K, D, image_size, R, P)
     public static void estimateNewCameraMatrixForUndistortRectify(Mat K, Mat D, Size image_size, Mat R, Mat P)
     {
-        
+
         estimateNewCameraMatrixForUndistortRectify_1(K.nativeObj, D.nativeObj, image_size.width, image_size.height, R.nativeObj, P.nativeObj);
-        
+
         return;
     }
 
@@ -1254,9 +1254,9 @@ public class Calib3d {
     //javadoc: initUndistortRectifyMap(K, D, R, P, size, m1type, map1, map2)
     public static void initUndistortRectifyMap(Mat K, Mat D, Mat R, Mat P, Size size, int m1type, Mat map1, Mat map2)
     {
-        
+
         initUndistortRectifyMap_0(K.nativeObj, D.nativeObj, R.nativeObj, P.nativeObj, size.width, size.height, m1type, map1.nativeObj, map2.nativeObj);
-        
+
         return;
     }
 
@@ -1271,7 +1271,7 @@ public class Calib3d {
         Mat objectPoints_mat = objectPoints;
         Mat imagePoints_mat = imagePoints;
         projectPoints_2(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, K.nativeObj, D.nativeObj, alpha, jacobian.nativeObj);
-        
+
         return;
     }
 
@@ -1281,7 +1281,7 @@ public class Calib3d {
         Mat objectPoints_mat = objectPoints;
         Mat imagePoints_mat = imagePoints;
         projectPoints_3(objectPoints_mat.nativeObj, imagePoints_mat.nativeObj, rvec.nativeObj, tvec.nativeObj, K.nativeObj, D.nativeObj);
-        
+
         return;
     }
 
@@ -1293,18 +1293,18 @@ public class Calib3d {
     //javadoc: stereoRectify(K1, D1, K2, D2, imageSize, R, tvec, R1, R2, P1, P2, Q, flags, newImageSize, balance, fov_scale)
     public static void stereoRectify(Mat K1, Mat D1, Mat K2, Mat D2, Size imageSize, Mat R, Mat tvec, Mat R1, Mat R2, Mat P1, Mat P2, Mat Q, int flags, Size newImageSize, double balance, double fov_scale)
     {
-        
+
         stereoRectify_2(K1.nativeObj, D1.nativeObj, K2.nativeObj, D2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, tvec.nativeObj, R1.nativeObj, R2.nativeObj, P1.nativeObj, P2.nativeObj, Q.nativeObj, flags, newImageSize.width, newImageSize.height, balance, fov_scale);
-        
+
         return;
     }
 
     //javadoc: stereoRectify(K1, D1, K2, D2, imageSize, R, tvec, R1, R2, P1, P2, Q, flags)
     public static void stereoRectify(Mat K1, Mat D1, Mat K2, Mat D2, Size imageSize, Mat R, Mat tvec, Mat R1, Mat R2, Mat P1, Mat P2, Mat Q, int flags)
     {
-        
+
         stereoRectify_3(K1.nativeObj, D1.nativeObj, K2.nativeObj, D2.nativeObj, imageSize.width, imageSize.height, R.nativeObj, tvec.nativeObj, R1.nativeObj, R2.nativeObj, P1.nativeObj, P2.nativeObj, Q.nativeObj, flags);
-        
+
         return;
     }
 
@@ -1316,18 +1316,18 @@ public class Calib3d {
     //javadoc: undistortImage(distorted, undistorted, K, D, Knew, new_size)
     public static void undistortImage(Mat distorted, Mat undistorted, Mat K, Mat D, Mat Knew, Size new_size)
     {
-        
+
         undistortImage_0(distorted.nativeObj, undistorted.nativeObj, K.nativeObj, D.nativeObj, Knew.nativeObj, new_size.width, new_size.height);
-        
+
         return;
     }
 
     //javadoc: undistortImage(distorted, undistorted, K, D)
     public static void undistortImage(Mat distorted, Mat undistorted, Mat K, Mat D)
     {
-        
+
         undistortImage_1(distorted.nativeObj, undistorted.nativeObj, K.nativeObj, D.nativeObj);
-        
+
         return;
     }
 
@@ -1339,18 +1339,18 @@ public class Calib3d {
     //javadoc: undistortPoints(distorted, undistorted, K, D, R, P)
     public static void undistortPoints(Mat distorted, Mat undistorted, Mat K, Mat D, Mat R, Mat P)
     {
-        
+
         undistortPoints_0(distorted.nativeObj, undistorted.nativeObj, K.nativeObj, D.nativeObj, R.nativeObj, P.nativeObj);
-        
+
         return;
     }
 
     //javadoc: undistortPoints(distorted, undistorted, K, D)
     public static void undistortPoints(Mat distorted, Mat undistorted, Mat K, Mat D)
     {
-        
+
         undistortPoints_1(distorted.nativeObj, undistorted.nativeObj, K.nativeObj, D.nativeObj);
-        
+
         return;
     }
 
