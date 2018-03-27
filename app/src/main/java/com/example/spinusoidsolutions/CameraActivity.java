@@ -207,6 +207,7 @@ public class CameraActivity extends Activity implements CvCameraViewListener2 {
             Log.d(TAG, "Distance between markers: " + distance + " cm.");
             //File myFile = new File(getAssets() ------------ +"/" + "SpinusoidData.json");
             //To do: add filestream stuff to overwrite/store newest distance measurement
+
             mToSave = false;
         }
         return mRgba;
