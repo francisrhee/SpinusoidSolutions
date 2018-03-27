@@ -11,22 +11,36 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="50dp"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical">
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_alignBottom="@+id/linearLayout"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@drawable/stretch" />
 
         <Button
             android:id="@+id/collectButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView"
+            android:layout_alignStart="@+id/imageView"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="2"
-            android:text="Collect" />
+            android:drawablePadding="0dp"
+            android:drawableStart="@drawable/plzwork"
+            android:text=" Collect"
+            android:textSize="30sp"
+            android:paddingLeft="20dp"/>
 
         <Button
             android:id="@+id/analyseButton"
@@ -34,12 +48,15 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/collectButton"
             android:layout_centerVertical="true"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="2"
-            android:text="Analyse" />
+            android:text=" Analyze"
+            android:textSize="30sp"
+            android:drawableStart="@drawable/analytics_logo"
+            android:paddingLeft="20dp"/>
 
         <Button
             android:id="@+id/uploadButton"
@@ -47,16 +64,50 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/analyseButton"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="2"
-            android:text="Upload" />
+            android:text="  Upload"
+            android:textSize="30sp"
+            android:drawableStart="@drawable/upload_icon"
+            android:paddingLeft="20dp"/>
+
+
+        <TextView
+            android:id="@+id/uploadDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Uploaded: 03/28/2018"
+            android:textSize="20sp"
+            android:gravity = "center"
+            android:layout_weight="1"/>
+
+
 
         <!--android:centerHorizontal="true"/>-->
         <!--android:layout_weight="2" -->
 
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center"
+        android:layout_alignTop="@+id/linearLayout"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/green_check"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@drawable/greencheck"
+        android:visibility="invisible"/>
+
 
 </RelativeLayout>

@@ -1,7 +1,7 @@
 package com.example.spinusoidsolutions.spinesolutions;
 
 //package com.javacreed.examples.gson.part2;
-
+//        import android.package.R
         import android.content.Context;
         import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -55,6 +55,7 @@ public class AnalyzeActivity extends AppCompatActivity {
     Button submitDatebtn;
     EditText startDateTxt;
     EditText endDateTxt;
+    FormattedSpineData collectedData;
 
 
     @Override
@@ -66,7 +67,7 @@ public class AnalyzeActivity extends AppCompatActivity {
         SimpleDateFormat neatDateFormatter= new SimpleDateFormat("MM/dd/yyyy");
 
 
-//
+//        collectedData = (FormattedSpineData) findViewById(R.id.collectData);
         startDateTxt = (EditText) findViewById(R.id.startDate);
         endDateTxt = (EditText) findViewById(R.id.endDate);
         submitDatebtn = (Button) findViewById(R.id.submitDates);
@@ -137,6 +138,29 @@ public class AnalyzeActivity extends AppCompatActivity {
             }
         }
 
+        // Declare this at top
+//        CollectedDataSingleton instance = CollectedDataSingleton.getCollectedDataSingleton(new FormattedSpineData(todayDate, difference));
+//        CollectedData.collectedData = new FormattedSpineData(new Date(), 30);
+
+
+        CollectedDataSingleton instance = CollectedDataSingleton.getCollectedDataSingleton(null);
+        // If changing, so in CameraActivity
+//        instance.setData(blah);
+
+       if(CollectedData.collectedData != null) {
+           try {
+//               tempDate = collectedDate.formattedDate;
+               if (CollectedData.collectedData.formattedDate.after(beginningFilterDate) && CollectedData.collectedData.formattedDate.before(endingFilterDate)) {
+                   validDataArray.add(CollectedData.collectedData);
+               }
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+       }
+
+
+
+
         for(int i =0; i < validDataArray.size(); i++)
         {
 //           series.appendData(new DataPoint(i, validDataArray.get(i).difference), true, validDataArray.size());;
@@ -163,11 +187,13 @@ public class AnalyzeActivity extends AppCompatActivity {
         graph.getGridLabelRenderer().setHorizontalLabelsAngle(90);
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Date");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Height Difference (mm)");
-        graph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(12);
-        graph.getGridLabelRenderer().setVerticalAxisTitleTextSize(12);
+        graph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(50);
+        graph.getGridLabelRenderer().setVerticalAxisTitleTextSize(50);
 
         graph.setTitle("Height Difference Tracker");
-        graph.setTitleTextSize(20);
+        graph.setTitleTextSize(70);
+//        int imageResource = getResources().getIdentifier("@drawable/spinusoidstretched",null, getPackageName())
+//        graph.setBackground(getResources().getDrawable(imageResource));
 //        graph.getGridLabelRenderer().setHorizontalA("Date");
 //
     }
