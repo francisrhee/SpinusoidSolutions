@@ -49,10 +49,9 @@ public class MarkerDetector {
 	 * @param //camMatrix --
 	 * @param //distCoeff --
 	 * @param markerSizeMeters --
-	 * @param frameDebug used for debug issues, delete this
 	 */
 	public void detect(Mat in, Vector<Marker> detectedMarkers, CameraParameters cp,//Mat camMatrix, Mat distCoeff,
-			float markerSizeMeters, Mat frameDebug){
+			float markerSizeMeters){
 		Vector<Marker> candidateMarkers = new Vector<Marker>();
 		// the detection in the incoming frame will be done in a different vector
 		// because this will allow the ontouchlistener in View
