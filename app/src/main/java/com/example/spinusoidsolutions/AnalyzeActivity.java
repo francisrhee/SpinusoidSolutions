@@ -5,17 +5,22 @@ package com.example.spinusoidsolutions;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 //import com.google.gson.Gson;
 //import com.google.gson.GsonBuilder;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.DataPointInterface;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.OnDataPointTapListener;
+import com.jjoe64.graphview.series.Series;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
@@ -87,7 +92,7 @@ public class AnalyzeActivity extends AppCompatActivity {
     }
 
     public void createGraphs() throws Exception {
-
+        Log.d("AnalyzeActivity", "123 Create Graphs");
         String fileName = "SpinusoidData.json";
 //      reading json file, converting to string
         String json = loadJSONFromAsset(this);
@@ -102,6 +107,7 @@ public class AnalyzeActivity extends AppCompatActivity {
         SimpleDateFormat dateFormatter=new SimpleDateFormat("MM/dd/yyyy");
         Date beginningFilterDate = new Date();
         Date endingFilterDate = new Date();
+        Log.d("AnalyzeActivity", "123 Before Try");
         try {
             beginningFilterDate = dateFormatter.parse(startDateTxt.getText().toString());
         } catch (ParseException e) {
@@ -144,9 +150,15 @@ public class AnalyzeActivity extends AppCompatActivity {
 //        instance.setData(blah);
 
         if(CollectedData.collectedData != null) {
-                if (CollectedData.collectedData.formattedDate.after(beginningFilterDate) && CollectedData.collectedData.formattedDate.before(endingFilterDate)) {
-                    validDataArray.add(CollectedData.collectedData);
-                }
+            Log.d("AnalyzeActivity", "123 Difference is: " + CollectedData.collectedData.difference + "cm");
+            Log.d("AnalyzeActivity", "12345 Date is: " + CollectedData.collectedData.formattedDate + "cm");
+            if (CollectedData.collectedData.formattedDate.after(beginningFilterDate) && CollectedData.collectedData.formattedDate.before(endingFilterDate)) {
+                validDataArray.add(CollectedData.collectedData);
+                Log.d("AnalyzeActivity", "123 inside if statement");
+            }
+        }
+        else{
+            Log.d("AnalyzeActivity", "123 yoooooo");
         }
 
 
@@ -163,23 +175,35 @@ public class AnalyzeActivity extends AppCompatActivity {
 
 
         series.setDrawDataPoints(true);
-        series.setDataPointsRadius(10);
+        series.setDataPointsRadius(20);
         series.setThickness(8);
 //        series.setOnDataPointTapListener(hi);
 
         // set manual x bounds to have nice steps
-        graph.getViewport().setMinX(validDataArray.get(0).formattedDate.getTime());
-        graph.getViewport().setMaxX(validDataArray.get(validDataArray.size()-1).formattedDate.getTime());
+        Date startTime = new Date();
+        startTime.setTime(validDataArray.get(0).formattedDate.getTime());
+        Date endTime = new Date();
+        endTime.setTime(validDataArray.get(validDataArray.size()-1).formattedDate.getTime() + 86400000);
+        graph.getViewport().setMinX(startTime.getTime());
+        graph.getViewport().setMaxX(endTime.getTime());
         graph.getViewport().setXAxisBoundsManual(true);
 
         graph.getGridLabelRenderer().setHumanRounding(true);
         graph.getGridLabelRenderer().setLabelFormatter(new DateAsXAxisLabelFormatter(this));
-        graph.getGridLabelRenderer().setNumHorizontalLabels(validDataArray.size()); // only 4 because of the space
+        graph.getGridLabelRenderer().setNumHorizontalLabels(validDataArray.size()+1); // only 4 because of the space
         graph.getGridLabelRenderer().setHorizontalLabelsAngle(90);
         graph.getGridLabelRenderer().setHorizontalAxisTitle("Date");
         graph.getGridLabelRenderer().setVerticalAxisTitle("Height Difference (mm)");
         graph.getGridLabelRenderer().setHorizontalAxisTitleTextSize(50);
         graph.getGridLabelRenderer().setVerticalAxisTitleTextSize(50);
+
+
+        series.setOnDataPointTapListener(new OnDataPointTapListener() {
+            @Override
+            public void onTap(Series series, DataPointInterface dataPoint) {
+                Toast.makeText(AnalyzeActivity.this, "Difference: " + dataPoint.getY() + " cm", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         graph.setTitle("Height Difference Tracker");
         graph.setTitleTextSize(70);

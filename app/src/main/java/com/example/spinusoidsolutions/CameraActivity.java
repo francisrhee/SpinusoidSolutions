@@ -46,7 +46,7 @@ public class CameraActivity extends Activity implements CvCameraViewListener2 {
     //Constants
     private static final String TAG = "CameraActivity";
     private static final float MARKER_SIZE = (float) 0.05;
-    SimpleDateFormat dateFormatter = new SimpleDateFormat("mm/dd/yyyy");
+    SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
     String todayDate = "03/28/2018";
 
     //image containers
