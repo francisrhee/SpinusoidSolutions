@@ -33,6 +33,8 @@ import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -44,6 +46,8 @@ public class CameraActivity extends Activity implements CvCameraViewListener2 {
     //Constants
     private static final String TAG = "CameraActivity";
     private static final float MARKER_SIZE = (float) 0.05;
+    SimpleDateFormat dateFormatter = new SimpleDateFormat("mm/dd/yyyy");
+    String todayDate = "03/28/2018";
 
     //image containers
     Mat mRgba;
@@ -204,10 +208,15 @@ public class CameraActivity extends Activity implements CvCameraViewListener2 {
         }
         if(mToSave && mDetectedMarkers.size() == 2){
             Double distance  = Math.abs((pts.get(1).get(0).y - pts.get(0).get(0).y)/(mDetectedMarkers.get(0).perimeter()/4/5));
-            Log.d(TAG, "Distance between markers: " + distance + " cm.");
+            Log.d(TAG, "Vertical distance between markers: " + distance + " cm.");
             //File myFile = new File(getAssets() ------------ +"/" + "SpinusoidData.json");
             //To do: add filestream stuff to overwrite/store newest distance measurement
-
+            try {
+                CollectedData.collectedData = new FormattedSpineData(dateFormatter.parse(todayDate), distance);
+            }
+            catch (ParseException e){
+                e.printStackTrace();
+            }
             mToSave = false;
         }
         return mRgba;
