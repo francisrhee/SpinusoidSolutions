@@ -1,0 +1,46 @@
+[
+  {
+	"date": "03/01/2018",
+	"left shoulder" : 100, 
+	"right shoulder" : 105, 
+	"difference" : "5" 
+	} ,
+    {
+	"date": "03/02/2018",
+	"left shoulder" : 100, 
+	"right shoulder" : 106, 
+	"difference" : "6" 
+	} ,
+    {
+	"date": "03/03/2018",
+	"left shoulder" : 99, 
+	"right shoulder" : 107, 
+	"difference" : "8" 
+	} ,
+    {
+	"date": "03/04/2018",
+	"left shoulder" : 99, 
+	"right shoulder" : 107, 
+	"difference" : "8" 
+	} ,
+    {
+	"date": "03/05/2018",
+	"left shoulder" : 100, 
+	"right shoulder" : 107, 
+	"difference" : "7" 
+	} ,
+    {
+	"date": "03/06/2018",
+	"left shoulder" : 101, 
+	"right shoulder" : 108, 
+	"difference" : "7" 
+	} ,
+	 {
+	"date": "03/07/2018",
+	"left shoulder" : 100, 
+	"right shoulder" : 109, 
+	"difference" : "9" 
+	} 
+  
+  ]
+ 

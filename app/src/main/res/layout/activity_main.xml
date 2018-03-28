@@ -89,6 +89,9 @@
         <!--android:centerHorizontal="true"/>-->
         <!--android:layout_weight="2" -->
 
+        <!--android:centerHorizontal="true"/>-->
+        <!--android:layout_weight="2" -->
+
     </LinearLayout>
 
     <ProgressBar
